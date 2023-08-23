@@ -46,7 +46,7 @@ namespace aod {
 	static void mysqlDestroy(MYSQL* mysql) {
 		if (mysql != NULL) {
 			mysql_close(mysql);
-			LOG(NOTICE, "mysql handler destroy success!");
+			// LOG(NOTICE, "mysql handler destroy success!");
 		}
 		else {
 			LOG(NOTICE, "mysql handler does not exists, do nothing!");
@@ -186,7 +186,7 @@ namespace aod {
 				video["v_info"] = rowData[2];
 				video["v_path"] = rowData[3];
 				video["v_cover"] = rowData[4];
-				video["owner_id"] = rowData[5]; // owner_id 当前为空, 不用做转换
+				// video["owner_id"] = rowData[5]; // owner_id 当前为空, 不用做转换
 				videos->append(video);
 			}
 			mysql_free_result(result); // 释放结果集
@@ -212,19 +212,25 @@ namespace aod {
 			// 获取结果集
 			MYSQL_RES* result = mysql_store_result(_mysql);
 			if (result == NULL) {
+				// 只有查询失败才会为NULL, 如果实际只是 查询不到, 那么还是会返回一个 MYSQL_RES的指针的
 				LOG(WARNING, "selectOneVideo():: get query result failed!");
 				_mutex.unlock();
 				return false;
 			}
 			_mutex.unlock();
-			// 此次获取只有一行结果, 因为是根据 videoId 查询的, 此字段是唯一的
+			// 此次获取最多只有一行结果, 因为是根据 videoId 查询的, 此字段是唯一的
+			if (mysql_num_rows(result) == 0) {
+				// result 中 数据行数为0, 表示没有查到数据, 但并不是查询失败
+				LOG(WARNING, "selectOneVideo():: select nothing!");
+				return false;
+			}
 			MYSQL_ROW data = mysql_fetch_row(result);
 			(*video)["v_id"] = videoId;
 			(*video)["v_title"] = data[1];
 			(*video)["v_info"] = data[2];
 			(*video)["v_path"] = data[3];
 			(*video)["v_cover"] = data[4];
-			(*video)["owner_id"] = data[5]; // owner_id 当前为空, 不用做转换
+			// (*video)["owner_id"] = data[5]; // owner_id 当前为空, 不用做转换
 
 			mysql_free_result(result);
 
@@ -233,15 +239,16 @@ namespace aod {
 
 		// 3. 模糊查找
 		// 根据标题进行模糊查找
-		bool selectVideoLike(const std::string& key, Json::Value* videos) {
+		bool selectLikeVideo(const std::string& key, Json::Value* videos) {
 			std::string sql;
 			sql.resize(1024);
 #define SELECTLIKE_VIDEO "SELECT * FROM tb_video WHERE v_title LIKE '%%%s%%';" // 注意转义
-			sprintf(&sql[0], SELECTLIKE_VIDEO, sql.c_str());
+			sprintf(&sql[0], SELECTLIKE_VIDEO, key.c_str());
+			std::cout << sql << std::endl;
 
 			// 查询
 			_mutex.lock();
-			bool ret = mysqlQuery(_mysql, SELECTLIKE_VIDEO);
+			bool ret = mysqlQuery(_mysql, sql);
 			if (!ret) {
 				LOG(WARNING, "selectAllVideo():: mysqlQuery(%s) failed!", SELECTLIKE_VIDEO);
 				_mutex.unlock(); // 这里要退出了, 要解锁
@@ -271,7 +278,7 @@ namespace aod {
 				video["v_info"] = rowData[2];
 				video["v_path"] = rowData[3];
 				video["v_cover"] = rowData[4];
-				video["owner_id"] = rowData[5]; // owner_id 当前为空, 不用做转换
+				// video["owner_id"] = rowData[5]; // owner_id 当前为空 查不到
 				videos->append(video);
 			}
 			mysql_free_result(result); // 释放结果集
