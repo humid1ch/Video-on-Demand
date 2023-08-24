@@ -97,14 +97,14 @@ namespace aod {
 
 			// 插入数据的操作
 			// 注意, 我们预先创建的 tb_video 表结构是这样的: v_id(主键\自增) v_title v_info v_path v_cover owner_id(扩展用);
-#define INSERT_VIDEO "INSERT INTO tb_video VALUE(NULL, '%s', '%s', '%s', '%s', NULL);"
+#define INSERT_VIDEO "INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('%s', '%s', '%s', '%s');"
 
 			sprintf(&sql[0], INSERT_VIDEO,
 					video["v_title"].asCString(),
 					video["v_info"].asCString(),
 					video["v_path"].asCString(),
 					video["v_cover"].asCString());
-			// 将 sql 内容格式化为 INSERT INTO tb_video VALUE(NULL, v_title, v_info, v_path, v_cover, NULL)
+			// 将 sql 内容格式化为 INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE(v_title, v_info, v_path, v_cover)
 			_mutex.lock();
 			// 该执行sql了, 先上锁
 			bool ret = mysqlQuery(_mysql, sql);
@@ -186,6 +186,7 @@ namespace aod {
 				video["v_info"] = rowData[2];
 				video["v_path"] = rowData[3];
 				video["v_cover"] = rowData[4];
+				video["v_updatetime"] = rowData[5];
 				// video["owner_id"] = rowData[5]; // owner_id 当前为空, 不用做转换
 				videos->append(video);
 			}
@@ -230,6 +231,7 @@ namespace aod {
 			(*video)["v_info"] = data[2];
 			(*video)["v_path"] = data[3];
 			(*video)["v_cover"] = data[4];
+			(*video)["v_updatetime"] = data[5];
 			// (*video)["owner_id"] = data[5]; // owner_id 当前为空, 不用做转换
 
 			mysql_free_result(result);
@@ -278,6 +280,7 @@ namespace aod {
 				video["v_info"] = rowData[2];
 				video["v_path"] = rowData[3];
 				video["v_cover"] = rowData[4];
+				video["v_updatetime"] = rowData[5];
 				// video["owner_id"] = rowData[5]; // owner_id 当前为空 查不到
 				videos->append(video);
 			}

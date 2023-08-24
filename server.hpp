@@ -160,6 +160,10 @@ namespace aod {
 				resp.body = R"({"result": false, "reason": "数据库新增视频信息失败"})";
 				return;
 			}
+
+			resp.set_redirect("/index.html", 303);
+			// 添加完成之后, 设置重定向状态码以及 url, 以实现返回主页
+			// 状态码303, 可以看作此次重定向, see other 本次响应其他链接
 		}
 
 		// _srv.Delete("/video/(\\d+)", deleteV);
@@ -172,7 +176,7 @@ namespace aod {
 			Json::Value videoValue;
 			if (!tbVideo->selectOneVideo(videoId, &videoValue)) {
 				// 查询失败
-				resp.status = 500;
+				resp.status = 400;
 				resp.set_header("Content-Type", "application/json");
 				resp.body = R"("{"result": false, "reason": "相关视频信息不存在"}")";
 				return;
@@ -196,9 +200,126 @@ namespace aod {
 		// _srv.Put("/video/(\\d+)", updateV);
 		static void updateV(const httplib::Request& req, httplib::Response& resp) {
 			// 更新操作, 实现更新标题和简介
+			// 更新操作 首先需要根据 videoId 查询数据库中的相关视频数据, 保证数据存在
+			// 获取到请求中的 视频id
+			int videoId = atoi(req.matches.str(1).c_str());
+			// 查询相关内容
+			Json::Value videoValue;
+			if (!tbVideo->selectOneVideo(videoId, &videoValue)) {
+				// 查询失败
+				resp.status = 400;
+				resp.set_header("Content-Type", "application/json");
+				resp.body = R"("{"result": false, "reason": "查询相关视频信息失败"}")";
+				return;
+			}
+
+			// 走到这里查询成功
+			// 需要 获取相关 请求中携带的需要更新的 标题和简介信息
+			// 如何获取呢? (与 insertV 完全不同, insertV是通过表单完成了 multipart/form-data 格式化)
+			// 我们之前已经规定了, 更新请求的正文内容 是 序列化的json串: {"v_title":"新标题", "v_info":"新简介"}
+			// 所以, 我们可以针对 更新请求正文 进行反序列化 获取对应的更新信息
+			Json::Value updateValue;
+			if (!jsonUtil::deserialize(req.body, &updateValue)) {
+				// 反序列化失败
+				resp.status = 400;
+				resp.set_header("Content-Type", "application/json");
+				resp.body = R"("{"result": false, "reason": "反序列化更新信息失败"}")";
+				return;
+			}
+			// 此时 updateValue, 应该已经存在 updateValue["v_title"]: "新标题", updateValue["v_info"]: "新简介"
+
+			// 更新数据库信息
+			if (!tbVideo->updateVideo(videoId, updateValue)) {
+				// 更新失败
+				resp.status = 500;
+				resp.set_header("Content-Type", "application/json");
+				resp.body = R"("{"result": false, "reason": "更新数据库中 相关视频信息失败"}")";
+				return;
+			}
 		}
-		static void selectOneV(const httplib::Request& req, httplib::Response& resp) {}
-		static void selectAllV(const httplib::Request& req, httplib::Response& resp) {}
+
+		// _srv.Get("/video/(\\d+)", selectOneV);
+		static void selectOneV(const httplib::Request& req, httplib::Response& resp) {
+			// 指定查找也是根据视频id查找的
+			int videoId = atoi(req.matches.str(1).c_str());
+
+			// 在数据库中查询相关数据
+			Json::Value videoValue;
+			if (!tbVideo->selectOneVideo(videoId, &videoValue)) {
+				// 没找到 或 查询失败
+				resp.status = 400;
+				resp.set_header("Content-Type", "application/json");
+				resp.body = R"("{"result": false, "reason": "查询相关视频信息失败"}")";
+				return;
+			}
+
+			// 查询成功, 就需要序列化并设置相应数据类型以及相关内容 到响应对象中
+			if (!jsonUtil::serialize(videoValue, &resp.body)) {
+				// 序列化失败
+				resp.status = 400;
+				resp.set_header("Content-Type", "application/json");
+				resp.body = R"("{"result": false, "reason": "响应设置序列化数据失败"}")";
+				return;
+			}
+			// 走到这里 resp的正文内容就已经包含了一个 序列化的视频信息
+			// 正文内容是json 序列, 所以 需要设置正文类型为 application/json类型
+			resp.set_header("Content-Type", "application/json");
+		}
+
+		// _srv.Get("/video", selectAllV);
+		static void selectAllV(const httplib::Request& req, httplib::Response& resp) {
+			// 这个接口稍微与指定查找有一些不同
+			// 因为 这个接口要同时处理 查找所有 和 模糊查找的请求, 因为 这两个请求的url资源路径是相同的
+			// 不同的是 我们规定了 模糊查找在资源的请求路径之后 要有一堆键值: search=xxxxx 的键值
+			// httplib::Request 中提供了判断是否存在键值对 以及 获取键值内容的接口: has_param() 和 gei_param_value()
+
+			// 1. 判断是否存在 search 键值, 如果存在 就记录是模糊查找, 后面执行模糊查找的操作
+			bool LikeSelect = false;
+			std::string searchKey;
+			if (req.has_param("search")) {
+				// 有search键值对, 就记录需要模糊查找
+				LikeSelect = true;
+				searchKey = req.get_param_value("search"); // 获取查找关键字, 也就是 search键的值
+
+				// 可以单独处理 search值为空的情况. 可以提醒用户重新搜索
+				// 或者 在前端禁止用户搜索空值
+			}
+
+			Json::Value videoValues;
+			if (LikeSelect) {
+				// 模糊查找
+				if (!tbVideo->selectLikeVideo(searchKey, &videoValues)) {
+					// 没找到 或 查询失败
+					resp.status = 400;
+					resp.set_header("Content-Type", "application/json");
+					resp.body = R"("{"result": false, "reason": "查询相关视频信息失败"}")";
+					return;
+				}
+			}
+			else {
+				// 全部查找
+				if (!tbVideo->selectAllVideo(&videoValues)) {
+					// 查询失败
+					resp.status = 400;
+					resp.set_header("Content-Type", "application/json");
+					resp.body = R"("{"result": false, "reason": "查询相关视频信息失败"}")";
+					return;
+				}
+			}
+			// 查找到的数据, 都已经存储到了 videoValues 中了
+			// 此时需要进行序列化并设置到相应正文中
+			if (!jsonUtil::serialize(videoValues, &resp.body)) {
+				// 序列化失败
+				resp.status = 400;
+				resp.set_header("Content-Type", "application/json");
+				resp.body = R"("{"result": false, "reason": "响应设置序列化数据失败"}")";
+				return;
+			}
+
+			// 走到这里就是成功找到了, 而且已经设置了响应正文
+			// 不过还需要设置一下 响应正文类型
+			resp.set_header("Content-Type", "application/json");
+		}
 
 	private:
 		int _port;
