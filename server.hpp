@@ -229,7 +229,7 @@ namespace aod {
 			// 此时 updateValue, 应该已经存在 updateValue["v_title"]: "新标题", updateValue["v_info"]: "新简介"
 
 			// 更新数据库信息
-			if (!tbVideo->updateVideo(videoId, updateValue)) {
+			if (!tbVideo->updateVideo(videoId, updiateValue)) {
 				// 更新失败
 				resp.status = 500;
 				resp.set_header("Content-Type", "application/json");

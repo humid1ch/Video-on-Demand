@@ -10,7 +10,7 @@
 
 #define HOST "127.0.0.1"	 // 连接数据库地址
 #define USER "root"			 // 连接数据库用户名
-#define PASSWD ""			 // 用户名密码
+#define PASSWD "Dxyt200209." // 用户名密码
 #define NAME "AoD_System_DB" // 数据库名
 
 namespace aod {

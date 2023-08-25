@@ -21,6 +21,7 @@
       <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
       <![endif]-->
    <link href="css/lity.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 </head>
 
 <body>
@@ -37,10 +38,12 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
                <div class="right-box">
-                  <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">get free
-                     access</button>
+                  <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">删除视频</button>
                </div>
             </div>
+               <div class="right-box">
+                  <button type="button" class="access-btn" data-toggle="modal" data-target="#updatepopup">修改视频</button>
+               </div>
          </div>
          <!-- MENU -->
          <div class="row home-mega-menu ">
@@ -86,11 +89,9 @@
                         <div class="video-info">
                            <!-- 16:9 aspect ratio -->
                            <div class="embed-responsive embed-responsive-16by9 video-embed-box">
-                              <iframe v-bind:src="videos.v_path" class="embed-responsive-item" allowfullscreen="true" frameborder="0"></iframe>
-                              <!-- <video v-bind:src="videos.v_path" type="video/mp4"></video> -->
+                              <iframe title="v_Video" v-bind:src="videos.v_path" class="embed-responsive-item" allowfullscreen="true" frameborder="0"></iframe>
                            </div>
-                           <h2 class="title main-head-title" v-cloak>{{videos.v_title}}
-                           </h2>
+                           <h2 id="vTitle1" class="title main-head-title"></h2>
                            <div class="metabox">
                               <span class="meta-i">
                                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
@@ -112,10 +113,10 @@
                         <div class="clearfix spacer"></div>
                         <!-- DETAILS -->
                         <div class="video-content">
-                           <h2 class="title main-head-title" v-cloak>{{videos.v_title}}</h2>
-                           <p v-cloak>
-                              {{videos.v_info}}
-                           </p>
+                           <!-- 靠后面vue中的函数 设置一次性的值. 
+                              如果直接使用 {{videos.v_title}}等, 那么 在更新视频的dialog中修改内容时, 这里的内容也会发生改变 -->
+                           <h2 id="vTitle2" class="title main-head-title"></h2>
+                           <p id="vInfo"></p>
                         </div>
                         <div class="clearfix spacer"></div>
                      </article>
@@ -174,7 +175,35 @@
          </div>
       </div>
       <!-- MODAL -->
-      
+		<div id="updatepopup" class="modal fade in " role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content row">
+					<div class="modal-header custom-modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>更新视频信息</h2>
+					</div>
+					<div class="modal-body">
+						<form id="info_form" name="info_form" class="form-inline" action="#" method="post">
+							<div class="form-group col-sm-12">
+								<label>视频标题:</label>
+								<input type="text" id="updateTitle" name="updateTitle" v-model="videos.v_title">
+								<p id="upTitleErr" style="color: red; font-size: 0.95rem; margin-top: 5px; margin-bottom: 0; text-align: center;" ></p>
+							</div>
+							<div class="form-group col-sm-12">
+								<label>视频简介:</label>
+								<textarea style="resize: vertical;" id="updateInfo" name="updateInfo" v-model="videos.v_info"></textarea>
+								<p id="upInfoErr" style="color: red; font-size: 0.95rem; margin-top: 5px; margin-bottom: 0; text-align: center;"></p>
+							</div>
+							<div class="form-group col-sm-12">
+                        <!-- 通过 v-on:click来设置 此按钮的点击处理方法 -->
+								<button class="subscribe-btn pull-right" title="" v-on:click.prevent="updateVideo()">更新</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
    </div>
 </body>
 <!-- JAVA SCRIPT -->
@@ -194,7 +223,7 @@
       el: "#Aod-video",
       data: {
          author: "July.cc",
-         videos: {}
+         videos: {},
       },
       methods: {
          getParam: function(name) {
@@ -208,10 +237,55 @@
                context: this,
                success: function (result, status, xhr) {
                   this.videos = result;
+                  window.cTitle = this.videos.v_title;
+                  document.getElementById('vTitle1').textContent = cTitle;
+                  document.getElementById('vTitle2').textContent = cTitle;
+                  window.cInfo = this.videos.v_info;
+                  document.getElementById('vInfo').textContent = cInfo;
                }
             })
-         }
-      },
+         },
+         updateVideo: function() {
+            // 先检测输入内容是否为空, 如果为空 提示信息, 不发送请求
+            const title = document.getElementById('updateTitle').value;
+		      const info = document.getElementById('updateInfo').value;
+
+		      const errorTitle = document.getElementById('upTitleErr');
+		      const errorInfo = document.getElementById('upInfoErr');
+            let isErr = false;
+		      if(!title) {
+			      errorTitle.innerText = '请输入标题';
+               isErr = true;
+		      }
+		      else {
+			      errorTitle.innerText = '';
+		      }
+		      if (!info){
+			      errorInfo.innerText = '请输入简介';
+               isErr = true;
+		      }
+		      else {
+			      errorInfo.innerText = '';
+		      }
+
+            if (isErr) {
+               return;
+            }
+            $.ajax({
+               url: "/video/" + this.videos.v_id,
+               type: "put",
+               context: this,
+               data: JSON.stringify(this.videos), // 因为我们在更新视频信息时, 直接修改了videos的内容, 所以直接序列化
+               success: function (result, status, xhr) {
+                  alert("更新视频信息成功");
+                  window.location.reload();
+               }
+            })
+         },
+         // updateVideoBefore: function () {
+         
+         // }
+      }
       // success: 
    });
    video.getVideo();
