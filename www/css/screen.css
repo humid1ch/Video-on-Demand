@@ -58,9 +58,9 @@ a:hover, a:focus {
 }
 
 /* BASE */
-html, body { height: 100% !important; height:auto; margin: 0 auto;  background-color: var(--primary-bgcolor, #000);}
+html, body { height: 100% !important; height:auto; margin: 0 auto;    background-color: #f3f8ff;}
 html { font-size:100%; }
-body {font-size:16px;color:#fff;font-family: 'Roboto Condensed', sans-serif;background-color: #000;text-decoration:none;margin:0;padding:0;}
+body {font-size:16px;color:#4870ac;font-family: 'Roboto Condensed', sans-serif;background-color: #f3f8ff;text-decoration:none;margin:0;padding:0;}
 
 
 h1,h2,h3,h4,h5,h6 {
@@ -169,36 +169,11 @@ section {margin:10px 0; display:block;}
 
 /* BACKGROUNDS */
 .standard-bg{
-	padding-top:0px;
-	background:#080b12 url('../img/backgrounds/blue-background-img.jpg') no-repeat center top fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-	 background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-	padding-bottom: 30px;
-}
-
-.channels-bg {
-	background:#080b12 url('../img/backgrounds/bottom-bg-img.png') no-repeat center top fixed;
-    background-repeat: no-repeat;
-	background-size:cover;
-	border-top: 5px solid var(--primary-color);
+	background-color: #f3f8ff;
 }
 
 .footer-background {
-	padding-top:80px;
-	padding-bottom:80px;
-	background:#080b12 url('../img/backgrounds/bottom-bg-img.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-	 background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+	background-color: #ffffff;
 }
 
 .featured-bg {

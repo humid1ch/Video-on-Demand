@@ -38,12 +38,12 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-7 hidden-xs">
                <div class="right-box">
-                  <button type="button" class="access-btn" data-toggle="modal" data-target="#enquirypopup">删除视频</button>
+                  <button type="button" class="access-btn" data-toggle="modal" data-target="#deletepopup">删除视频</button>
                </div>
-            </div>
                <div class="right-box">
                   <button type="button" class="access-btn" data-toggle="modal" data-target="#updatepopup">修改视频</button>
                </div>
+            </div>
          </div>
          <!-- MENU -->
          <div class="row home-mega-menu ">
@@ -61,7 +61,6 @@
                   <div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
                      <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="video.html">Video Post</a></li>
                         <li><a href="login.html">Login</a></li>
                      </ul>
                      <div class="search-block">
@@ -197,7 +196,30 @@
 							</div>
 							<div class="form-group col-sm-12">
                         <!-- 通过 v-on:click来设置 此按钮的点击处理方法 -->
-								<button class="subscribe-btn pull-right" title="" v-on:click.prevent="updateVideo()">更新</button>
+								<button class="subscribe-btn pull-right" v-on:click.prevent="updateVideo()">更新</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="deletepopup" class="modal fade in " role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content row">
+					<div class="modal-header custom-modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>删除视频</h2>
+					</div>
+					<div class="modal-body">
+						<form id="info_form" name="info_form" class="form-inline" action="#" method="delete">
+							<div class="form-group col-sm-12" style="text-align: center;">
+								<label>确定删除视频?</label>
+							</div>
+							<div class="form-group col-sm-12">
+                        <!-- 通过 v-on:click来设置 此按钮的点击处理方法 -->
+								<button class="subscribe-btn pull-right" v-on:click.prevent="deleteVideo()">确定</button>
+                        <button class="subscribe-btn pull-right" style="background-color: red; color: #fff;" data-dismiss="modal">取消</button>
 							</div>
 						</form>
 					</div>
@@ -282,11 +304,18 @@
                }
             })
          },
-         // updateVideoBefore: function () {
-         
-         // }
+         deleteVideo: function() {
+         $.ajax({
+               url: "/video/" + this.videos.v_id,
+               type: "delete",
+               context: this,
+               success: function (result, status, xhr) {
+                  alert("删除视频成功");
+                  window.location.href="/index.html";
+               }
+            })
+         }
       }
-      // success: 
    });
    video.getVideo();
 </script>
