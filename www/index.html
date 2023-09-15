@@ -30,7 +30,7 @@
 			<!-- HEADER -->
 			<div class="row header-top">
 				<div class="col-lg-3 col-md-6 col-sm-5 col-xs-8">
-					<a class="main-logo" href="#"><img src="img/main-logo.png" class="main-logo img-responsive"
+					<a class="main-logo" href="#"><img src="img/main-logo2.png" class="main-logo img-responsive"
 							alt="Muvee Reviews" title="Muvee Reviews"></a>
 				</div>
 				<div class="col-lg-6 hidden-md text-center hidden-sm hidden-xs">
@@ -63,7 +63,7 @@
 							</ul>
 							<div class="search-block">
 								<form>
-									<input type="search" placeholder="Search">
+									<input type="search" placeholder="Search" id="search-input">
 								</form>
 							</div>
 						</div>
@@ -98,9 +98,9 @@
 													<img id="videoCover" v-cloak class="img-responsive" v-bind:src="video.v_cover" alt="#">
 												</a>
 											</div>
-											<div class="infor">
+											<div class="infor" >
 												<h4>
-													<a v-cloak class="title" href="#">{{video.v_title}}</a>
+													<a v-cloak class="title" v-bind:href="'/video.html?id='+video.v_id">{{video.v_title}}</a>
 												</h4>
 												
 											</div>

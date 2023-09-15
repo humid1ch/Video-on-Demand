@@ -30,7 +30,7 @@ namespace aod {
 			fileUtil(coverRealPath).createDir();
 
 			// 3. 设置服务器 静态资源根目录
-			_srv.set_mount_point("/", WWW_ROOT);
+			_srv.set_mount_point("/", WWW_ROOT.c_str());
 			// 4. 设置 请求方法 与 处理函数的映射
 			//  使用 restful 风格设计: GET 对应查询操作, POST 对应添加操作, PUT 对应修改操作, DELETE 对应删除操作
 
@@ -65,7 +65,8 @@ namespace aod {
 			_srv.Put("/video/(\\d+)", updateV);
 
 			//  4. 查找所有 和 模糊查找
-			_srv.Get("/video", selectAllV);
+			// _srv.Get("/video", selectAllV);
+			_srv.Get("/video", videoHandle);
 			// 查找所有 和 模糊查找请求头相似, 所有: GET /video HTTP/1.1, 模糊: GET /video?search=key HTTP/1.1
 			// 所以 一起使用 selectAllV
 
@@ -266,7 +267,18 @@ namespace aod {
 			resp.set_header("Content-Type", "application/json");
 		}
 
-		// _srv.Get("/video", selectAllV);
+		static void videoHandle(const httplib::Request& req, httplib::Response& resp) {
+			// 1. 判断是否请求具体文件
+			if (req.path.find(".") != std::string::npos) {
+				// 请求包含".",可能是文件请求
+				videoFileGet(req, resp);
+			}
+			else {
+				// 普通视频信息查询请求
+				selectAllV(req, resp);
+			}
+		}
+
 		static void selectAllV(const httplib::Request& req, httplib::Response& resp) {
 			// 这个接口稍微与指定查找有一些不同
 			// 因为 这个接口要同时处理 查找所有 和 模糊查找的请求, 因为 这两个请求的url资源路径是相同的
@@ -319,6 +331,27 @@ namespace aod {
 			// 走到这里就是成功找到了, 而且已经设置了响应正文
 			// 不过还需要设置一下 响应正文类型
 			resp.set_header("Content-Type", "application/json");
+		}
+
+		static void videoFileGet(const httplib::Request& req, httplib::Response& resp) {
+			std::string videoRealPath = WWW_ROOT + VIDEO_ROOT; // 视频资源路径
+			std::string fileName = req.path.substr(7);		   // 剪切掉"/video/" 获取文件名
+			std::string filePath = videoRealPath + fileName;
+			if (req.has_header("Range")) {
+				// 处理Range请求
+				std::int64_t startByte, endByte;
+				auto rangeHeader = req.get_header_value("Range");
+				std::ifstream video(filePath, std::ios::binary);
+				video.seekg(startByte);
+				size_t totalSize = video.tellg();
+				std::string rangeData(endByte - startByte + 1, 0);
+				video.read(&rangeData[0], rangeData.size());
+
+				resp.status = 206;
+				std::string rangeStr = "bytes 0-" + std::to_string(endByte) + "/" + std::to_string(totalSize);
+				resp.set_header("Content-Range", rangeStr);
+				resp.set_header("Content-Length", std::to_string(endByte));
+			}
 		}
 
 	private:

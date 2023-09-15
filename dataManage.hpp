@@ -49,7 +49,7 @@ namespace aod {
 			// LOG(NOTICE, "mysql handler destroy success!");
 		}
 		else {
-			LOG(NOTICE, "mysql handler does not exists, do nothing!");
+			LOG(NOTICE, "mysqlDestroy()::mysql handler does not exists, do nothing!");
 		}
 	}
 
@@ -58,7 +58,7 @@ namespace aod {
 	// 需要通过此接口实现各种查询操作
 	static bool mysqlQuery(MYSQL* mysql, const std::string& sql) {
 		if (mysql == NULL) {
-			LOG(WARNING, "mysql handler does not exists!");
+			LOG(WARNING, "mysqlDestroy()::mysql handler does not exists!");
 			return false;
 		}
 
@@ -246,13 +246,12 @@ namespace aod {
 			sql.resize(1024);
 #define SELECTLIKE_VIDEO "SELECT * FROM tb_video WHERE v_title LIKE '%%%s%%';" // 注意转义
 			sprintf(&sql[0], SELECTLIKE_VIDEO, key.c_str());
-			std::cout << sql << std::endl;
 
 			// 查询
 			_mutex.lock();
 			bool ret = mysqlQuery(_mysql, sql);
 			if (!ret) {
-				LOG(WARNING, "selectAllVideo():: mysqlQuery(%s) failed!", SELECTLIKE_VIDEO);
+				LOG(WARNING, "selectLikeVideo():: mysqlQuery(%s) failed!", SELECTLIKE_VIDEO);
 				_mutex.unlock(); // 这里要退出了, 要解锁
 				return false;
 			}
@@ -260,7 +259,7 @@ namespace aod {
 			// 获取结果集
 			MYSQL_RES* result = mysql_store_result(_mysql);
 			if (result == NULL) {
-				LOG(WARNING, "selectAllVideo():: get query result failed!");
+				LOG(WARNING, "selectLikeVideo():: get query result failed!");
 				_mutex.unlock();
 				return false;
 			}
