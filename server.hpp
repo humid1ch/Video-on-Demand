@@ -8,6 +8,7 @@
 
 namespace aod {
 	const std::string WWW_ROOT = "./www";
+    // 视频路径 以及 封面路径 可以不在本项目中, 否则git会将视频和封面一起提交
 	const std::string VIDEO_ROOT = "/video/";
 	const std::string COVER_ROOT = "/cover/";
 
