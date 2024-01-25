@@ -1,0 +1,16 @@
+WARNING | Fri Jan 26 04:34:16 2024 | July | exists():: file(./www/video/) does not exists, will be created! | util.hpp:33
+WARNING | Fri Jan 26 04:34:16 2024 | July | exists():: file(./www/cover/) does not exists, will be created! | util.hpp:33
+WARNING | Fri Jan 26 04:52:33 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
+WARNING | Fri Jan 26 04:52:33 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
+WARNING | Fri Jan 26 04:53:26 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
+WARNING | Fri Jan 26 04:53:26 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
+WARNING | Fri Jan 26 04:55:52 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
+WARNING | Fri Jan 26 04:55:52 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
+WARNING | Fri Jan 26 04:58:31 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
+WARNING | Fri Jan 26 04:58:31 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
+WARNING | Fri Jan 26 05:14:57 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: Table 'VoD_System_DB.tb_video' doesn't exist! | dataManage.hpp:67
+WARNING | Fri Jan 26 05:14:57 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
+WARNING | Fri Jan 26 05:15:13 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Table 'VoD_System_DB.tb_video' doesn't exist! | dataManage.hpp:67
+WARNING | Fri Jan 26 05:15:13 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
+WARNING | Fri Jan 26 05:22:42 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
+WARNING | Fri Jan 26 05:22:42 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158

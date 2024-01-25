@@ -4,14 +4,14 @@
 #include <ios>
 #include <iostream>
 #include <fstream>
-#include <jsoncpp/json/reader.h>
-#include <jsoncpp/json/writer.h>
+#include <json/reader.h>
+#include <json/writer.h>
 #include <ostream>
 #include <sstream>
 #include <string>
 #include <memory>
 
-#include <jsoncpp/json/json.h>
+#include <json/json.h>
 
 #include <sys/stat.h>
 #include <sys/types.h>
