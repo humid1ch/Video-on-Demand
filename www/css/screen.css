@@ -1302,6 +1302,7 @@ margin-left: -15px;}
   letter-spacing:-0.5px;
   font-weight: 600;
   text-transform: uppercase;
+  text-align: center;
   line-height:30px;
   transition: all 0.1s linear 0s;
   background:transparent;
@@ -1733,7 +1734,7 @@ span.join-date {
 /*********** RESPONSIVE **************/
 /*************************************/
 @media (min-width: 768px) and (max-width: 1024px) {
-		.right-box {padding:40px 90px 0 0;}
+		/* .right-box {padding:15px 90px 0 0;}
 		.navbar-default .navbar-toggle { position:absolute; right:0; top:-103px;}
         .navbar-nav .open .dropdown-menu {
             position: static;
@@ -1773,15 +1774,15 @@ span.join-date {
         }
         .navbar-collapse.collapse {
             display: none!important;
-        }
-        .navbar-nav {
+        } */
+        /* .navbar-nav {
             float: none!important;
             
-        }
+        } */
         /* .navbar-nav>li {
             float: none;
         } */
-        .navbar-nav>li>a {
+        /* .navbar-nav>li>a {
             padding-top: 10px;
             padding-bottom: 10px;
         }
@@ -1789,13 +1790,13 @@ span.join-date {
             float: none;
             margin: 15px 0;
         }
-        /* since 3.1.0 */
+        
         .navbar-collapse.collapse.in { 
             display: block!important;
         }
         .collapsing {
             overflow: hidden!important;
-        }
+        } */
 }
 
 
@@ -1803,7 +1804,7 @@ span.join-date {
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-	
+/* 	
 	.infor h4 {font-size:24px; line-height:30px;}
 	ul.sidebar-links li a {font-size:20px;}
 	ul.sidebar-links li span {font-size:18px;}
@@ -1813,20 +1814,20 @@ span.join-date {
 	h2.icon {font-size:36px;}
 	.cactus-note.ct-time {font-size:16px;}
 	.infor h4 {font-size:24px; line-height:30px;}
-	.posts-txt {font-size:18px;}
+	.posts-txt {font-size:18px;} */
 	/* input {font-size:18px;} */
-	.subscribe-btn {font-size:22px;}
+	/* .subscribe-btn {font-size:22px;}
 	.main-large-post .infor h4 {font-size:48px; line-height:54px;}
 	.small-post .infor h4 {font-size:30px; line-height:36px;}
 	
-	#tabs li h2 {font-size:36px;}
+	#tabs li h2 {font-size:36px;} */
 
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
 	
-	
+/* 	
 	.subscribe-box {display:block;}
 	h2.icon {font-size:36px;}
 	.cactus-note.ct-time {font-size:16px;}
@@ -1847,12 +1848,12 @@ span.join-date {
 	
 	.map-frame {margin-bottom:30px;}
 	
-	.review-xs-thumbs .post {margin-bottom:20px;}
+	.review-xs-thumbs .post {margin-bottom:20px;} */
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-	.footer-logo {margin-left:35%;}
+	/* .footer-logo {margin-left:35%;}
 	#contact-page form {display:block;}
 	.subscribe-box {display:block;}
 	h2.icon {font-size:36px;}
@@ -1867,16 +1868,16 @@ span.join-date {
 	#tabs li h2 {font-size:36px;}
 	.map-frame {margin-bottom:30px;}
 	
-	.review-xs-thumbs .post {margin-bottom:20px;}
+	.review-xs-thumbs .post {margin-bottom:20px;} */
 }
 
 /* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
+@media only screen and (max-width : 768px) {
 	.footer-logo {margin-left: 20%;}
 	.navbar-default .navbar-toggle {
 		position: absolute;
 		right: 0;
-		top: -103px;
+		top: -75px;
 	}
 	
 	#tabs h2.title {margin:10px 0;}
