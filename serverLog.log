@@ -1,30 +1,239 @@
-WARNING | Fri Jan 26 04:34:16 2024 | July | exists():: file(./www/video/) does not exists, will be created! | util.hpp:33
-WARNING | Fri Jan 26 04:34:16 2024 | July | exists():: file(./www/cover/) does not exists, will be created! | util.hpp:33
-WARNING | Fri Jan 26 04:52:33 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
-WARNING | Fri Jan 26 04:52:33 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 04:53:26 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
-WARNING | Fri Jan 26 04:53:26 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 04:55:52 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
-WARNING | Fri Jan 26 04:55:52 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 04:58:31 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
-WARNING | Fri Jan 26 04:58:31 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 05:14:57 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: Table 'VoD_System_DB.tb_video' doesn't exist! | dataManage.hpp:67
-WARNING | Fri Jan 26 05:14:57 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
-WARNING | Fri Jan 26 05:15:13 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Table 'VoD_System_DB.tb_video' doesn't exist! | dataManage.hpp:67
-WARNING | Fri Jan 26 05:15:13 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 05:22:42 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频', '测试视频', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: Incorrect string value: '\xE6\xB5\x8B\xE8\xAF\x95...' for column 'v_title' at row 1! | dataManage.hpp:67
-WARNING | Fri Jan 26 05:22:42 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 16:57:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:67
-WARNING | Fri Jan 26 16:57:40 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
-WARNING | Fri Jan 26 16:58:13 2024 | July | mysqlQuery():: sql(INSERT INTO tb_video(v_title, v_info, v_path, v_cover) VALUE('测试视频1', '测试视频1', '/video/测试.mp4', '/cover/测试.png');) query failed! error:: MySQL server has gone away! | dataManage.hpp:67
-WARNING | Fri Jan 26 16:58:13 2024 | July | server::insertV():: insert video to database failed! | server.hpp:158
-WARNING | Fri Jan 26 17:01:20 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:67
-WARNING | Fri Jan 26 17:01:20 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
-WARNING | Fri Jan 26 17:02:31 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:67
-WARNING | Fri Jan 26 17:02:31 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
-WARNING | Sat Jan 27 08:52:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: Lost connection to MySQL server during query! | dataManage.hpp:67
-WARNING | Sat Jan 27 08:52:05 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
-WARNING | Sat Jan 27 08:52:09 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:67
-WARNING | Sat Jan 27 08:52:09 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
-WARNING | Sat Jan 27 08:53:07 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:67
-WARNING | Sat Jan 27 08:53:07 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:161
+
+NOTICE | Mon Mar  4 17:32:05 2024 | July | mysqlInit():: get mysql handler success! | dataManage.hpp:25
+NOTICE | Mon Mar  4 17:32:05 2024 | July | mysqlInit():: connect mysql server success! | dataManage.hpp:34
+NOTICE | Mon Mar  4 17:32:05 2024 | July | mysqlInit():: mysql client set character success! | dataManage.hpp:42
+WARNING | Mon Mar  4 17:32:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Mar  4 17:32:50 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Mon Mar  4 17:33:38 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Mar  4 17:33:46 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Mon Mar  4 17:37:19 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Mar 11 10:19:00 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Mar 11 23:06:56 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Mar 14 18:17:18 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Mar 14 18:17:21 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Fri Mar 15 02:19:46 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Mar 16 09:33:26 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Mar 17 14:13:17 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 00:01:24 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:17:48 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:21:10 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:22:47 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:25:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:27:56 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:28:15 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:29:15 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:29:28 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:30:08 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:32:43 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:33:12 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:35:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:35:09 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:36:06 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:36:49 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:37:09 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:37:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 01:38:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Mar 20 10:13:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Mar 21 15:32:50 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Mar 22 17:43:01 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Mar 26 21:28:45 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Mar 28 11:15:28 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Mar 28 11:30:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sun Mar 31 15:02:28 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Mar 31 15:33:20 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Apr  5 09:55:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Mon Apr 15 18:36:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Mon Apr 15 18:36:32 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Tue Apr 16 16:00:14 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Tue Apr 16 16:00:14 2024 | July | selectOneVideo():: mysqlQuery(SELECT * FROM tb_video WHERE v_id=1;) failed! | dataManage.hpp:213
+WARNING | Wed Apr 17 01:39:27 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Wed Apr 17 01:39:27 2024 | July | selectOneVideo():: mysqlQuery(SELECT * FROM tb_video WHERE v_id=1;) failed! | dataManage.hpp:213
+WARNING | Wed Apr 17 08:56:26 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Wed Apr 17 08:56:26 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Thu Apr 18 16:02:41 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Thu Apr 18 16:02:41 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Sat Apr 20 12:12:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Sat Apr 20 12:12:30 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Wed Apr 24 23:41:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Wed Apr 24 23:41:40 2024 | July | selectOneVideo():: mysqlQuery(SELECT * FROM tb_video WHERE v_id=1;) failed! | dataManage.hpp:213
+WARNING | Thu Apr 25 01:32:04 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Thu Apr 25 01:32:04 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Sat Apr 27 18:50:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Sat Apr 27 18:50:39 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Wed May  1 12:33:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Wed May  1 12:33:23 2024 | July | selectOneVideo():: mysqlQuery(SELECT * FROM tb_video WHERE v_id=1;) failed! | dataManage.hpp:213
+WARNING | Sun May  5 09:55:19 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Sun May  5 09:55:19 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Sun May  5 19:07:59 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Sun May  5 19:07:59 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Mon May  6 16:38:33 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Mon May  6 16:38:33 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Wed May  8 17:38:47 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Wed May  8 17:38:47 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Thu May  9 00:03:53 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Thu May  9 00:03:53 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Sat May 18 15:00:57 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Sat May 18 15:00:57 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+NOTICE | Sat May 18 16:06:15 2024 | July | mysqlInit():: get mysql handler success! | dataManage.hpp:25
+NOTICE | Sat May 18 16:06:15 2024 | July | mysqlInit():: connect mysql server success! | dataManage.hpp:34
+NOTICE | Sat May 18 16:06:15 2024 | July | mysqlInit():: mysql client set character success! | dataManage.hpp:42
+WARNING | Sat May 18 16:06:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon May 20 00:07:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue May 21 11:11:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue May 21 21:07:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Fri May 24 08:36:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat May 25 18:02:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+NOTICE | Mon May 27 15:38:01 2024 | July | mysqlInit():: get mysql handler success! | dataManage.hpp:25
+NOTICE | Mon May 27 15:38:01 2024 | July | mysqlInit():: connect mysql server success! | dataManage.hpp:34
+NOTICE | Mon May 27 15:38:01 2024 | July | mysqlInit():: mysql client set character success! | dataManage.hpp:42
+WARNING | Fri May 31 15:00:33 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun  1 20:21:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jun  5 12:57:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun  7 05:04:41 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun  7 05:05:34 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun  8 01:52:28 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jun 10 06:05:37 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jun 10 06:11:09 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 12 07:13:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 12 07:13:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 12 07:47:25 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 12 09:22:11 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 12 11:42:29 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 14 02:09:11 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 16:32:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Fri Jun 21 16:32:40 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+WARNING | Fri Jun 21 16:34:06 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query failed! error:: MySQL server has gone away! | dataManage.hpp:70
+WARNING | Fri Jun 21 16:34:06 2024 | July | selectAllVideo():: mysqlQuery(SELECT * FROM tb_video;) failed! | dataManage.hpp:165
+NOTICE | Fri Jun 21 16:40:35 2024 | July | mysqlInit():: get mysql handler success! | dataManage.hpp:25
+NOTICE | Fri Jun 21 16:40:35 2024 | July | mysqlInit():: connect mysql server success! | dataManage.hpp:34
+NOTICE | Fri Jun 21 16:40:35 2024 | July | mysqlInit():: mysql client set character success! | dataManage.hpp:42
+WARNING | Fri Jun 21 16:41:07 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 16:43:12 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 16:48:31 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 16:50:08 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 18:47:01 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 20:19:27 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 20:19:27 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 20:28:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Fri Jun 21 20:28:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 22 00:40:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 22 10:01:33 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 22 10:44:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 22 14:29:29 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 22 14:30:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 26 11:23:02 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jun 26 22:03:18 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 10:45:19 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 10:45:22 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 10:45:58 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 12:56:59 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 13:06:52 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 15:35:12 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 16:04:38 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 16:04:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 16:40:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 16:40:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 19:24:24 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 20:34:33 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 20:34:35 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 20:39:52 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jun 29 21:28:02 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul  1 19:58:27 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul  1 21:50:21 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul  3 20:27:33 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 04:51:53 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 04:58:22 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 06:33:06 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 06:40:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 09:21:16 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 10:05:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 10:49:55 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul  7 16:40:11 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul  8 06:24:41 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul  8 13:51:58 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul  9 19:45:22 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul  9 19:45:22 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 10 01:17:13 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 10 07:49:10 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 10 09:44:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Jul 11 02:23:26 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Jul 11 09:48:18 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Jul 11 20:43:14 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jul 12 11:16:22 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jul 12 11:16:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jul 12 17:23:48 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 13 10:29:22 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 13 11:25:56 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 13 11:26:04 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 13 15:30:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 13 15:30:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sun Jul 14 02:55:46 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul 14 15:19:12 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul 14 22:29:34 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul 15 03:09:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul 15 03:09:39 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 16 10:00:56 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 16 10:01:03 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 16 12:11:37 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 16 12:12:54 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 16 16:52:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 17 02:50:00 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 17 10:48:06 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Jul 18 09:34:15 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Thu Jul 18 14:21:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jul 19 15:27:05 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jul 19 15:27:07 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 20 17:48:34 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 20 17:48:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 20 17:50:18 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 20 17:50:20 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video WHERE v_id=1;) query success! | dataManage.hpp:73
+WARNING | Sat Jul 20 23:12:08 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Jul 21 19:53:07 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 24 08:43:55 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 24 11:41:19 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Jul 26 03:06:11 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Mon Jul 29 17:32:26 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 30 00:38:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 30 08:17:28 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 30 08:19:14 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Jul 30 11:21:20 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 31 04:38:26 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 31 04:38:36 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 31 04:38:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 31 08:29:41 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Wed Jul 31 08:29:41 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Fri Aug  2 20:42:56 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Aug  3 11:50:42 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sat Aug  3 19:25:48 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Aug  4 00:35:35 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Sun Aug  4 01:44:12 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:15:01 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:17:23 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:20:07 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:21:24 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:22:45 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:23:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:24:48 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:25:35 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:26:20 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:26:38 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:27:44 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:28:26 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:28:52 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:31:32 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:32:03 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:33:07 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:33:10 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:34:35 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:34:43 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:34:46 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:35:35 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:36:48 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:38:31 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:38:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:39:30 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:39:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:39:51 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:40:53 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:40:57 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73
+WARNING | Tue Aug  6 20:41:40 2024 | July | mysqlQuery():: sql(SELECT * FROM tb_video;) query success! | dataManage.hpp:73

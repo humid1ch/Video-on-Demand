@@ -22,6 +22,7 @@ namespace aod {
 			LOG(WARNING, "mysqlInit():: get mysql handler failed!");
 			return NULL;
 		}
+        LOG(NOTICE, "mysqlInit():: get mysql handler success!");
 
 		// 获取数据库句柄之后, 就可以连接数据库的
 		mysql = mysql_real_connect(mysql, HOST, USER, PASSWD, NAME, 0, NULL, 0);
@@ -30,6 +31,7 @@ namespace aod {
 			mysql_close(mysql);
 			return NULL;
 		}
+		LOG(NOTICE, "mysqlInit():: connect mysql server success!");
 
 		int ret = mysql_set_character_set(mysql, "utf8");
 		if (ret != 0) {
@@ -37,6 +39,7 @@ namespace aod {
 			mysql_close(mysql);
 			return NULL;
 		}
+		LOG(NOTICE, "mysqlInit():: mysql client set character success!");
 
 		return mysql;
 	}
@@ -46,7 +49,7 @@ namespace aod {
 	static void mysqlDestroy(MYSQL* mysql) {
 		if (mysql != NULL) {
 			mysql_close(mysql);
-			// LOG(NOTICE, "mysql handler destroy success!");
+			LOG(NOTICE, "mysql handler destroy success!");
 		}
 		else {
 			LOG(NOTICE, "mysqlDestroy()::mysql handler does not exists, do nothing!");
@@ -67,6 +70,7 @@ namespace aod {
 			LOG(WARNING, "mysqlQuery():: sql(%s) query failed! error:: %s!", sql.c_str(), mysql_error(mysql));
 			return false;
 		}
+		LOG(WARNING, "mysqlQuery():: sql(%s) query success!", sql.c_str());
 
 		return true;
 	}

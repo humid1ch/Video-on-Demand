@@ -1969,7 +1969,7 @@
 }
 .fa-tv:before,
 .fa-television:before {
-  content: "\f26c";
+  /* content: "\f26c"; */
 }
 .fa-contao:before {
   content: "\f26d";

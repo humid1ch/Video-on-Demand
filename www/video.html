@@ -7,6 +7,7 @@
    <meta name="description" content="">
    <meta name="author" content="OrcasThemes">
    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
    <title></title>
    <!-- Bootstrap core CSS -->
    <link href="css/bootstrap.css" rel="stylesheet">
@@ -132,22 +133,21 @@
       <div id="channels-block" class="container-fluid channels-bg">
       </div>
       <!-- FOOTER -->
-      <div id="footer" class="container-fluid footer-background">
+      <!-- <div id="footer" class="container-fluid footer-background">
          <div class="container">
             <footer>
-               <!-- SECTION FOOTER -->
                <div class="row copyright-bottom text-center">
                   <div class="col-md-12 text-center">
-                     <!-- <a href="" class="footer-logo" title="Video Magazine Bootstrap HTML5 template">
+                     <a href="" class="footer-logo" title="Video Magazine Bootstrap HTML5 template">
                         <img src="img/footer-logo.png" class="img-responsive text-center"
                            alt="Video Magazine Bootstrap HTML5 template">
-                     </a> -->
+                     </a>
                      <p v-cloak>Copyright &copy; Author by {{author}}</p>
                   </div>
                </div>
             </footer>
          </div>
-      </div>
+      </div> -->
       <!-- MODAL -->
 		<div id="updatepopup" class="modal fade in " role="dialog">
 			<div class="modal-dialog">
@@ -235,6 +235,7 @@
                success: function (result, status, xhr) {
                   this.videos = result;
                   window.cTitle = this.videos.v_title;
+                  document.title = cTitle;
                   document.getElementById('vTitle1').textContent = cTitle;
                   document.getElementById('vTitle2').textContent = cTitle;
                   window.cInfo = this.videos.v_info;

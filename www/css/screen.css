@@ -109,6 +109,7 @@ h2.icon {
 	font-size:30px;
 	letter-spacing: -0.6px;
 	margin:0px 0px 15px 0;
+	margin-left: 5%;
 }
 
 h2.icon i {
@@ -127,8 +128,8 @@ h2.icon i {
 	padding-top:7px;
 	vertical-align: middle;
 	text-align:center;
-	width:50px;
-	height:50px;
+	width:30px;
+	height:30px;
 }
 
 h2.icon:hover i {
@@ -157,11 +158,16 @@ section {margin:10px 0; display:block;}
 	padding-top:15px;
 }
 
+.logo {
+	max-width: 70%;
+	margin: auto;
+}
+
 .main-logo {
 	display:inline-block;
 	margin-top:15px;
 	margin-bottom:15px;
-	
+	max-width: 70%;
 }
 
 .banner-l {display:inline-block; text-align:center;}
@@ -1369,6 +1375,7 @@ margin-left: -15px;}
 	border:0;
 	border-radius:5px;
 	opacity: 1;
+	margin-left: 8%;
 }
 
 .access-btn:hover {
@@ -1486,6 +1493,9 @@ margin-left: -15px;}
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
 	border-radius:6px;
+	
+	margin: auto;
+	max-width: 90%;
 }
 .navbar {
 	border-radius:6px;
@@ -1804,15 +1814,15 @@ span.join-date {
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-/* 	
-	.infor h4 {font-size:24px; line-height:30px;}
+
+	/*.infor h4 {font-size:24px; line-height:30px;}
 	ul.sidebar-links li a {font-size:20px;}
 	ul.sidebar-links li span {font-size:18px;}
 	.carousel-control i {font-size:36px;}
 	
-	.subscribe-box {display:block;}
-	h2.icon {font-size:36px;}
-	.cactus-note.ct-time {font-size:16px;}
+	.subscribe-box {display:block;}*/
+	/* h2.icon {font-size:36px;} */
+	/*.cactus-note.ct-time {font-size:16px;}
 	.infor h4 {font-size:24px; line-height:30px;}
 	.posts-txt {font-size:18px;} */
 	/* input {font-size:18px;} */
@@ -1882,6 +1892,7 @@ span.join-date {
 	
 	#tabs h2.title {margin:10px 0;}
 	.main-large-post .infor h4 {font-size:30px; line-height:36px;}
+	h2.icon {font-size:26px;}
 }
 
 /* Custom, iPhone Retina */ 
