@@ -288,7 +288,7 @@ namespace aod {
 				videos->append(video);
 			}
 			mysql_free_result(result); // 释放结果集
-
+                                       //
 			return true;
 		}
 
