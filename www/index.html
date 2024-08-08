@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="OrcasThemes">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<title>July 视频点播</title>
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.css" rel="stylesheet">
@@ -24,28 +24,27 @@
 	<link href="css/lity.css" rel="stylesheet">
 </head>
 
-<body >
+<body>
 	<div id="Aod-index">
 		<!-- HOME 1 -->
 		<div id="home1" class="container-fluid standard-bg">
 			<!-- HEADER -->
 			<div class="row header-top">
 				<a href="#">
-					<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/humid1chs.webp" class="logo img-responsive"
-					alt="Muvee Reviews" title="Muvee Reviews">
+					<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/humid1chs.webp"
+						class="logo img-responsive" alt="Muvee Reviews" title="Muvee Reviews">
 				</a>
-				
+
 				<button type="button" data-toggle="modal" data-target="#enquirypopup" class="access-btn">
 					上传视频
 				</button>
 			</div>
 		</div>
-	</div>
-			<!-- MENU -->
-			<div class="row home-mega-menu ">
-				<div class="col-md-12">
-					<nav class="navbar navbar-default">
-						<!-- <div class="navbar-header">
+		<!-- MENU -->
+		<div class="row home-mega-menu ">
+			<div class="col-md-12">
+				<nav class="navbar navbar-default">
+					<!-- <div class="navbar-header">
 							<button class="navbar-toggle" type="button" data-toggle="collapse"
 								data-target=".js-navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -54,65 +53,65 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div> -->
-						<div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
-							<ul class="nav navbar-nav">
-								<li><a href="index.html">Home</a></li>
-								<!-- <li><a href="login.html">Login</a></li> -->
-							</ul>
-							<!-- <div class="search-block">
+					<div class="collapse navbar-collapse js-navbar-collapse megabg dropshd ">
+						<ul class="nav navbar-nav">
+							<li><a href="index.html">Home</a></li>
+							<!-- <li><a href="login.html">Login</a></li> -->
+						</ul>
+						<!-- <div class="search-block">
 								<form>
 									<input type="search" placeholder="Search" id="search-input">
 								</form>
 							</div> -->
-						</div>
-						<!-- /.nav-collapse -->
-					</nav>
-				</div>
-			</div>
-			<!-- CORE -->
-			<div class="row">
-				<!-- SIDEBAR -->
-				<!-- HOME MAIN POSTS -->
-				<div id="show" class="col-lg-10 col-md-8">
-					<section id="home-main">
-						<div class="clearfix spacer"></div>
-						<h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>视频列表</h2>
-						<div class="row">
-							<!-- ARTICLES -->
-							<div class="col-lg-9 col-md-12 col-sm-12">
-								<!-- v-for 实现遍历videos 创建元素 -->
-								<div class="row auto-clear" v-for="video in videos">
-									<article id="videoElem" class="col-lg-3 col-md-6 col-sm-4">
-										<!-- POST L size -->
-										<div class="post post-medium">
-											<div class="thumbr">
-												 <!-- 动态点击跳转 -->
-												<a class="afterglow post-thumb" v-bind:href="'/video.html?id='+video.v_id">
-													<span class="play-btn-border" title="Play"><i
-															class="fa fa-play-circle headline-round"
-															aria-hidden="true"></i></span>
-													<!-- <div class="cactus-note ct-time font-size-1"><span>02:02</span> -->
-													</div>
-													<img id="videoCover" v-cloak class="img-responsive" v-bind:src="video.v_cover" alt="#">
-												</a>
-											</div>
-											<div class="infor" >
-												<h4>
-													<a v-cloak class="title" v-bind:href="'/video.html?id='+video.v_id">{{video.v_title}}</a>
-												</h4>
-												
-											</div>
-										</div>
-									</article>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
+					</div>
+					<!-- /.nav-collapse -->
+				</nav>
 			</div>
 		</div>
-		<!-- FOOTER -->
-        <!--<div id="footer" class="container-fluid footer-background" >
+		<!-- CORE -->
+		<div class="row">
+			<!-- SIDEBAR -->
+			<!-- HOME MAIN POSTS -->
+			<div id="show" class="col-lg-10 col-md-8">
+				<section id="home-main">
+					<div class="clearfix spacer"></div>
+					<h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>视频列表</h2>
+					<div class="row">
+						<!-- ARTICLES -->
+						<div class="col-lg-9 col-md-12 col-sm-12">
+							<!-- v-for 实现遍历videos 创建元素 -->
+							<div class="row auto-clear" v-for="video in videos">
+								<article id="videoElem" class="col-lg-3 col-md-6 col-sm-4">
+									<!-- POST L size -->
+									<div class="post post-medium">
+										<div class="thumbr">
+											<!-- 动态点击跳转 -->
+											<a class="afterglow post-thumb" v-bind:href="'/video.html?id='+video.v_id">
+												<span class="play-btn-border" title="Play"><i
+														class="fa fa-play-circle headline-round"
+														aria-hidden="true"></i></span>
+												<!-- <div class="cactus-note ct-time font-size-1"><span>02:02</span> -->
+										</div>
+										<img id="videoCover" v-cloak class="img-responsive" v-bind:src="video.v_cover"
+											alt="#">
+										</a>
+									</div>
+									<div class="infor">
+										<h4>
+											<a v-cloak class="title"
+												v-bind:href="'/video.html?id='+video.v_id">{{video.v_title}}</a>
+										</h4>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<!-- FOOTER -->
+	<!--<div id="footer" class="container-fluid footer-background" >
 			<div class="container">
 				<footer>
 					<div class="row copyright-bottom text-center">
@@ -127,47 +126,53 @@
 				 </footer>
 			</div>
         </div> -->
-		<!-- MODAL -->
-		<div id="enquirypopup" class="modal fade in " role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content row">
-					<div class="modal-header custom-modal-header">
-						<button type="button" class="close" data-dismiss="modal">×</button>
-						<h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>视频信息</h2>
-					</div>
-					<div class="modal-body">
-						<form id="info_form" name="info_form" class="form-inline" action="/video" method="post" enctype="multipart/form-data">
-							<div class="form-group col-sm-12">
-								<label>视频标题:</label>
-								<input type="text"  name="title" id="title" placeholder="输入标题">
-								<p id="titleErr" style="color: red; font-size: 0.95rem; margin-top: 5px; margin-bottom: 0; text-align: center;" ></p>
-							</div>
-							<div class="form-group col-sm-12">
-								<label>视频简介:</label>
-								<textarea style="resize: vertical; " name="info" id="info" placeholder="请输入简介"></textarea>
-								<p id="infoErr" style="color: red; font-size: 0.95rem; margin-top: 5px; margin-bottom: 0; text-align: center;"></p>
-							</div>
-							<div class="form-group col-sm-12">
-								<label>选择视频文件:</label>
-								<input type="file"  name="videoFile" id="videoFile">
-								<p id="videoErr" style="color: red; font-size: 0.95rem; margin-bottom: 0; text-align: center;"></p>
-							</div>
-							<div class="form-group col-sm-12">
-								<label>选择封面文件:</label>
-								<input type="file"  name="coverFile" id="coverFile">
-								<p id="coverErr" style="color: red; font-size: 0.95rem; margin-bottom: 0; text-align: center;"></p>
-							</div>
-							
-							<div class="form-group col-sm-12">
-								<button class="subscribe-btn pull-right" type="submit"
-									title="upload">上传视频</button>
-							</div>
-						</form>
-					</div>
+	<!-- MODAL -->
+	<div id="enquirypopup" class="modal fade in " role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content row">
+				<div class="modal-header custom-modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h2 class="icon"><i class="fa fa-television" aria-hidden="true"></i>视频信息</h2>
+				</div>
+				<div class="modal-body">
+					<form id="info_form" name="info_form" class="form-inline" action="/video" method="post"
+						enctype="multipart/form-data">
+						<div class="form-group col-sm-12">
+							<label>视频标题:</label>
+							<input type="text" name="title" id="title" placeholder="输入标题">
+							<p id="titleErr"
+								style="color: red; font-size: 0.95rem; margin-top: 5px; margin-bottom: 0; text-align: center;">
+							</p>
+						</div>
+						<div class="form-group col-sm-12">
+							<label>视频简介:</label>
+							<textarea style="resize: vertical; " name="info" id="info" placeholder="请输入简介"></textarea>
+							<p id="infoErr"
+								style="color: red; font-size: 0.95rem; margin-top: 5px; margin-bottom: 0; text-align: center;">
+							</p>
+						</div>
+						<div class="form-group col-sm-12">
+							<label>选择视频文件:</label>
+							<input type="file" name="videoFile" id="videoFile">
+							<p id="videoErr"
+								style="color: red; font-size: 0.95rem; margin-bottom: 0; text-align: center;"></p>
+						</div>
+						<div class="form-group col-sm-12">
+							<label>选择封面文件:</label>
+							<input type="file" name="coverFile" id="coverFile">
+							<p id="coverErr"
+								style="color: red; font-size: 0.95rem; margin-bottom: 0; text-align: center;"></p>
+						</div>
+
+						<div class="form-group col-sm-12">
+							<button class="subscribe-btn pull-right" type="submit" title="upload">上传视频</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 <!-- JAVA SCRIPT -->
@@ -190,12 +195,12 @@
 			videos: {}
 		},
 		methods: {
-			getAllVideos: function() {
+			getAllVideos: function () {
 				$.ajax({
 					url: "/video",
 					type: "get",
 					context: this,
-					success: function(result, status, xhr) {
+					success: function (result, status, xhr) {
 						this.videos = result;
 					}
 				})
@@ -219,14 +224,14 @@
 		const errorInfo = document.getElementById('infoErr');
 		const errorVideo = document.getElementById('videoErr');
 		const errorCover = document.getElementById('coverErr');
-		if(!title) {
-  			e.preventDefault(); // 阻止提交
+		if (!title) {
+			e.preventDefault(); // 阻止提交
 			errorTitle.innerText = '请输入标题';
 		}
 		else {
 			errorTitle.innerText = '';
 		}
-		if (!info){
+		if (!info) {
 			e.preventDefault(); // 阻止提交
 			errorInfo.innerText = '请输入简介';
 		}
@@ -234,14 +239,14 @@
 			errorInfo.innerText = '';
 		}
 
-		if (videoLen == 0){
+		if (videoLen == 0) {
 			e.preventDefault(); // 阻止提交
 			errorVideo.innerText = '请选择视频文件';
 		}
 		else {
 			errorVideo.innerText = '';
 		}
-		if (coverLen == 0){
+		if (coverLen == 0) {
 			e.preventDefault(); // 阻止提交
 			errorCover.innerText = '请选择封面文件';
 		}
